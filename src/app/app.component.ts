@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = '066 Forms Reactive';
+  // title = '066 Forms Reactive';
+  title = '067 Reactive Validaciones';
 
   form: FormGroup;
 
