@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FiltrarCaracteres } from './validaCaracteres';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AppComponent {
   // title = '066 Forms Reactive';
-  title = '067 Reactive Validaciones';
+  // title = '067 Reactive Validaciones';
+  title = '068 Reactive Validaciones personalizadas';
 
   form: FormGroup;
 
@@ -22,7 +24,13 @@ export class AppComponent {
           Validators.maxLength(6),
         ]),
       ],
-      nombre: ['', Validators.required],
+      nombre: [
+        '',
+        Validators.compose([
+          Validators.required,
+          FiltrarCaracteres.filtrarCaracteres,
+        ]),
+      ],
       // aficiones: fctrl.group({
       //   aficion1: 'musica',
       //   aficion2: 'futbol',

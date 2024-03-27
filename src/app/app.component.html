@@ -53,6 +53,14 @@
       >
         Nombre es obligatorio.
       </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          form.controls['nombre'].errors?.['filtrarCaracteres']
+        "
+      >
+        Solo puede introducir letras de la A a la Z en mayúsculas.
+      </div>
     </div>
     <!-- <div formGroupName="aficiones">
       <div class="form-group">
