@@ -14,21 +14,28 @@ export class AppComponent {
 
   constructor(private fctrl: FormBuilder) {
     this.form = fctrl.group({
-      codigo: '123',
-      nombre: 'Jhon',
-      aficiones: fctrl.group({
-        aficion1: 'musica',
-        aficion2: 'futbol',
-      }),
+      codigo: [
+        '',
+        Validators.compose([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(6),
+        ]),
+      ],
+      nombre: ['', Validators.required],
+      // aficiones: fctrl.group({
+      //   aficion1: 'musica',
+      //   aficion2: 'futbol',
+      // }),
     });
   }
 
   onSubmit() {
     console.log('codigo: ' + this.form.controls['codigo'].value);
     console.log('nombre: ' + this.form.controls['nombre'].value);
-    console.log(
-      'aficiones: ' + JSON.stringify(this.form.controls['aficiones'].value)
-    );
+    // console.log(
+    //   'aficiones: ' + JSON.stringify(this.form.controls['aficiones'].value)
+    // );
     console.log('form ' + JSON.stringify(this.form.value));
   }
 }
